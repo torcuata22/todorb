@@ -1,0 +1,25 @@
+<%= form_with(model: list, class: 'form') do |form| %>
+  <% if list.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+      <ul>
+        <% list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row">
+    
+    <%= form.text_field :description, class: 'form-control' %>
+   
+  </div>
+
+ <br>
+
+  <div>
+    <%= form.submit "Add a To Do", class: 'btn btn-outline-primary' %>
+  </div>
+<% end %>
