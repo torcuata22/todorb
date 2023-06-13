@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :description, style: "display: block" %>
     <%= form.text_field :description, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :completed, style: "display: block" %>
-    <%= form.check_box :completed %>
+  <div class="form-group form-check">
+    <%= form.check_box :completed, class:"form-check-input" %>
+    <%= form.label :completed, style: "display: block", class:"form-check-label" %>
+
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="">
+    <%= form.submit "Update", class:"btn btn-outline-success"%>
   </div>
 <% end %>
