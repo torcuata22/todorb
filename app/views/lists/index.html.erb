@@ -11,7 +11,7 @@
             <%= form_with(model: list) do |form| %>
                 <%= form.text_field :description, type: 'hidden'%>
                 <%= form.check_box :completed, :checked => false, :style => 'visibility: hidden' %>
-                <%= form.submit "Uncheck"%>
+                <%= form.submit "Uncheck", class: 'btn btn-sm btn-outline-light'%>
               <% end %>
           </td>
           <td>
@@ -28,7 +28,7 @@
               <%= form_with(model: list) do |form| %>
                 <%= form.text_field :description, type: 'hidden'%>
                 <%= form.check_box :completed, :checked => true, :style => 'visibility: hidden' %>
-                <%= form.submit "Check"%>
+                <%= form.submit "Check", class: 'btn btn-sm btn-outline-secondary'%>
               <% end %>
               </td>
 
