@@ -8,6 +8,13 @@
         <tr class="bg-secondary text-light">
           <td class="striker"> <%= link_to list.description, edit_list_path(list), class:"text-reset" %> <% list.description %></td>
           <td>
+            <%= form_with(model: list) do |form| %>
+                <%= form.text_field :description, type: 'hidden'%>
+                <%= form.check_box :completed, :checked => false, :style => 'visibility: hidden' %>
+                <%= form.submit "Uncheck"%>
+              <% end %>
+          </td>
+          <td>
             <% link_to "Show", list %>
             <% link_to "Edit", edit_list_path(list) %>
             <center><%= link_to "Delete", list, method: :delete, data: { confirm: "Are you sure you want to delete this list?" }, class:"btn btn-sm btn-outline-danger" %></center>
@@ -17,6 +24,17 @@
       <% else %>
       <tr>
               <td><%= link_to list.description, edit_list_path(list), class:"text-reset" %><% list.description %></td>
+              <td>
+              <%= form_with(model: list) do |form| %>
+                <%= form.text_field :description, type: 'hidden'%>
+                <%= form.check_box :completed, :checked => true, :style => 'visibility: hidden' %>
+                <%= form.submit "Check"%>
+              <% end %>
+              </td>
+
+
+
+
               <td>
                 <% link_to "Show", list %>
                 <% link_to "Edit", edit_list_path(list) %>
@@ -29,5 +47,9 @@
   </tbody>
 </table>
 
+<br><br> 
+<%= link_to 'Delete Marked Items', home_trash_em_path, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-secondary'%> 
+<%= link_to 'Delete All Items', home_trash_em_all_path,data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger'  %>
 
+<%# turn that ^ intoa form (see other forms) %>
 
